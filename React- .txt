@@ -18,3 +18,16 @@ diffing of list is performed using keys . keys should be stable,predictable,and 
 instead of <a> tag Link tag is used in react which is present in react-router-dom because a tag refresh the page 
 <Link to = ""> 
 <NavLink> - navlink provide callback function and provide a variable "isacvtive" so that when it is active you can change its css accordingly
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+context-api 
+redux - state management tool
+
+context api->
+steps 
+1. create a context using React.createContext
+the object of that React.createContext will provide a provider
