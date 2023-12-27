@@ -1,0 +1,154 @@
+javascript-:
+Promises using async and await
+/* Simple Hello World in Node.js */
+const fetchFast=()=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve({data:{name:"pikachu",power:20}})
+            // reject(new Error("Danger,danger!"))
+        },2000)
+    })
+}
+const fetchSlow=()=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve({data:{name:"pikachu",power:20}})
+            // reject(new Error("Danger,danger!"))
+        },6000)
+    })
+}
+const firstdate = new Date();
+console.log("Program started");
+const usePokemon=async()=>{
+    try{
+        const data = await fetchFast()
+        console.log(data);
+        console.log("done fetching")
+        const seconddate = new Date();
+        console.log(seconddate-firstdate);
+        
+    }catch(err){
+        console.log("There was an error")
+    }
+}
+const useSolw = async()=>{
+  
+    const data = await fetchSlow();
+    console.log(data);
+    console.log("done slow");
+    const thirddate = new Date();
+    console.log(thirddate-firstdate);
+
+}
+useSolw();
+usePokemon();
+console.log("program end");
+---------------------------------------------------------------------------------------------------------------------
+
+spread operator(...) 
+work on all iterable(string,array,Map,object)
+
+---------------------------------------------------------------------------------------------------------------- 
+
+destructuring:
+ex const obj = {name:"Sagar",class:"LY",college:"MIT"
+}
+const {name,class,college}= obj;
+console.log(name); //will give Sagar
+works with all iterable
+
+-----------------------------------------------------------------------------------------------------------------
+
+Generator 
+syntax for generator function
+const counter = function*(){
+yield 1;
+yield 2;
+}
+// Create the Generator Object
+const countGenerator = counter();
+console.loog(countGenerator.next())  // {value:1,done:false}
+ex->
+const counter = function*(){
+    console.log("This is first log");
+    yield 1;
+    console.log("This is 2 log");
+    yield 2;
+    console.log("This is final log");
+    
+    
+}
+const generatorobj = counter();
+// console.log(generatorobj.next());
+// console.log(generatorobj.next());
+// console.log(generatorobj.next());
+
+for(const count of generatorobj){
+    console.log(count)
+}
+------------------------------------------------------------------------------
+async generator
+const generator = async function* (){
+    yield new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1);
+        },1000)
+    })
+    yield new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(2);
+        },2000)
+    })
+}
+const generatorObj = generator()
+console.log(generator);
+console.log(generatorObj)
+// generatorObj.next().value.then((result)=>{
+//     console.log(result)
+// })
+const generatorExe = async()=>{
+    
+for await (const promise of generatorObj){
+    console.log(promise);
+}
+}
+generatorExe()
+
+---------------------------------------------------------------------------------
+symbol - is a primitive type in javascript
+other primitive type are - String,Null,Number,Undefined,Boolean
+
+symbol are used as keys for objects 
+symbol are hidden from iterations on objects etc
+
+------------------------------------------------------------------------------
+
+module
+two type of export -
+we have to create a package.json file and put type:module first to use export and import otherwise we will have to use require
+1. named export (we use {} in both export and import statement)
+2 . default export (no {} is used but only one export default is allowed)
+
+we can use await without async in one module and export it
+the import will first resolve the promise by awaiting for the response and then run the code
+
+
+------------------------------------------------------------------------------
+NPM
+Node Package Manager
+npm is a CLI package manager
+online javascript package registry
+publish your own javascript packages
+
+library - collection of module that work together for one purpose
+Package - library that are specifically bundled together in such a way that we can download it in our system
+so suppose when we are using npm we are downloading pre bundeled libraries as packages
+
+node_module - all the installed module code, managed by npm
+package.json - meta-data for the project , scripts we can create/run,managed by us and npm
+
+---------------------------------------------------------------------------
+
+fetch api
+built-in web standard api for fetching resourses
+contains interfaces for request,response,and their headers
