@@ -30,4 +30,21 @@ redux - state management tool
 context api->
 steps 
 1. create a context using React.createContext
-the object of that React.createContext will provide a provider
+the object of that React.createContext will provide a provider(.Provider)
+
+--------------------------------------------------------------------------
+ redux - better data flow than context-api
+ now used redux-toolkit
+
+1.we have to create a store which act as central point from where we can get state just like in context-api
+
+2. reducer 
+
+3. useSelector
+
+4. useDispatch
+
+step 1 - configureStore (in store)
+next create your reducers
+
+dispatch reducer ko use karke store m value change karta hai
