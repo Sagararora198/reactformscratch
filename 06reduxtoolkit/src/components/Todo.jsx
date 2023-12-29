@@ -9,12 +9,12 @@ export default function Todo() {
     const dispatch = useDispatch()
   return (
     <>
-    <div>Todos</div>
+    <div className="flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black" ></div>
     {todos.map((to)=>(
-        <li key={to.id} >
+        <li className='border outline-none w-full bg-transparent rounded-lg  '  key={to.id} >
             {to.test}
             
-            <button onClick={()=>dispatch(removeTodo(to.id))}>X</button>
+            <button className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0" onClick={()=>dispatch(removeTodo(to.id))}>❌</button>
         </li>
         
     ))}
