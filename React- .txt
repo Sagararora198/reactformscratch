@@ -49,3 +49,5 @@ step 1 - configureStore (in store)
 next create your reducers
 
 dispatch reducer ko use karke store m value change karta hai
+
+reduxtoolkit mai reducers slices se bante hai 
